@@ -11,8 +11,14 @@ for (i = 0; i < 16; i++) {
     const div = [];
     for (j = 0; j < 16; j++) {
         div[j] = document.createElement('div');
-        div[j].classList.add([j]);
+        div[j].classList.add('column');
         div[j].setAttribute('style', 'height: 45px; width: 45px; border: solid black')
         row[i].append(div[j]);
     }
-}   
+} 
+
+//make divs toggle between black and white as mouse hovers over
+const divs = document.querySelectorAll('.column')
+divs.forEach((div) => {
+    div.addEventListener('mouseover', () => {div.classList.toggle('black');});
+})
