@@ -1,4 +1,6 @@
 const body = document.querySelector('body');
+body.setAttribute('style',
+    'display: flex; flex-direction: column; align-items: center; gap: 20px;')
 const buttonContainer = document.querySelector('#buttonContainer')
 const button = document.createElement('button');
 buttonContainer.append(button);
@@ -21,6 +23,8 @@ button.addEventListener('click', () => {
     container = document.createElement('div');
     body.append(container);
     container.classList.add('container');
+    container.setAttribute('style',
+        'display: flex; flex-direction: column; height: 725px; width: 725px;')
 
     //ask user for grid size
     getGridSize();
@@ -30,13 +34,14 @@ button.addEventListener('click', () => {
     for (i = 0; i < gridSize; i++) {
         row[i] = document.createElement('div');
         row[i].classList.add('row');
-        row[i].setAttribute('style', 'display: flex; justify-content: center;');
+        row[i].setAttribute('style', 'display: flex; flex-grow: 1;');
         container.append(row[i]);
         const div = [];
         for (j = 0; j < gridSize; j++) {
             div[j] = document.createElement('div');
             div[j].classList.add('square');
-            div[j].setAttribute('style', 'height: 45px; width: 45px; border: solid black')
+            div[j].setAttribute('style',
+            'display: flex; flex-grow: 1; border: solid black')
             row[i].append(div[j]);
         }
     } 
