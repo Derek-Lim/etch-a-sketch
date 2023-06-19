@@ -1,5 +1,4 @@
 const body = document.querySelector('body');
-const container = document.querySelector('.container');
 const buttonContainer = document.querySelector('#buttonContainer')
 const button = document.createElement('button');
 buttonContainer.append(button);
@@ -16,6 +15,14 @@ let getGridSize = function() {
 
 // make button prompt user when clicked
 button.addEventListener('click', () => {
+    //remove previous grid and create new container for new grid
+    let container = document.querySelector('.container');
+    container.remove();
+    container = document.createElement('div');
+    body.append(container);
+    container.classList.add('container');
+
+    //ask user for grid size
     getGridSize();
 
     //create 16x16 grid of square divs
